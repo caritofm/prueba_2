@@ -1,7 +1,11 @@
-import {getComic} from "./api.js"
-import { getComicCards } from "./cards.js";
+import {getComic, getDc} from "./api.js"
+import { getComicCards, getDcCards } from "./cards.js";
 
 
 getComic();
 
 getComicCards();
+
+getDc();
+
+getDcCards();
