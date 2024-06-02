@@ -14,6 +14,7 @@ export const getComic = async() => {
 
 }
 
+
 getComic()
   .then((comic) => {
     console.log(comic);
@@ -22,3 +23,4 @@ getComic()
   .catch((error)=>{
     console.log(`El error es : ${error}`);
   })
+
