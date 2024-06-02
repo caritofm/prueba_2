@@ -5,11 +5,11 @@ import { comicMarvel } from "./comicMarvel.js";
 
     comicMarvel.map(function(comic){
         const comicCol = document.createElement("div");
-        comicCol.classList.add('col-xl-3')
-        comicCol.classList.add('col-lg-3')
-        comicCol.classList.add('col-md-3')
-        comicCol.classList.add('col-sm-12')
-        comicCol.classList.add('col-xs-12')
+        comicCol.classList.add('col-xl-2')
+        comicCol.classList.add('col-lg-2')
+        comicCol.classList.add('col-md-2')
+        comicCol.classList.add('col-sm-10')
+        comicCol.classList.add('col-xs-10')
 
         const card = document.createElement("div")
 
@@ -18,7 +18,7 @@ import { comicMarvel } from "./comicMarvel.js";
         card.classList.add("mb-2");
 
         const imgCard = document.createElement("img");
-        imgCard.src= comic.avatar;
+        imgCard.src= comic.img;
         imgCard.classList.add("card-img-top");
 
         const divBody = document.createElement("div")
@@ -30,15 +30,26 @@ import { comicMarvel } from "./comicMarvel.js";
         title.classList.add("card-title")
         title.textContent = comic.name
 
+
         const groups = document.createElement("p")
         groups.classList.add("card-text")
         groups.textContent= comic.groups
+        
+        const price = document.createElement("p")
+        price.classList.add("card-title")
+        price.textContent= comic.price
+
+
+        
 
         divBody.appendChild(title)
         divBody.appendChild(groups)
+        divBody.appendChild(price)
+
 
         card.appendChild(imgCard)
         card.appendChild(divBody)
+        
 
         comicCol.appendChild(card)
 

@@ -1,6 +1,6 @@
 export const getComic = async() => {
     try{
-        const comic = await fetch("https://api-comicmarvel.onrender.com/");
+        const comic = await fetch("https://api-comicmarvel.onrender.com");
         
 
         const data = await comic.json();

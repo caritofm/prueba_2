@@ -1,0 +1,14 @@
+.logo{
+    width: 100px;
+    height: auto;
+
+}
+
+#navbarNav{
+    font-family: fantasy;
+    font-size: large;
+    max-width: 1500px;
+    min-width: 100px;
+    display: flex;
+
+}
