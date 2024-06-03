@@ -1,36 +1,29 @@
 
-export const enviarDatos =  (name, gruops, price, img) =>{
-    const rutaArchivoHtml = '../personaje.html';
+export const enviarDatos = (name, groups, price, img) => {
+    // Almacenar los datos en el almacenamiento local
+    localStorage.setItem('comicData', JSON.stringify({ name, groups, price, img }));
+    
+    // Redirigir a la página 'personaje.html'
+    window.location.href = '../personaje.html';
+};
 
-    fetch(rutaArchivoHtml)
-       .then(response => response.text() )
-       .then((html) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+// Código en 'personaje.html' para recuperar y mostrar los datos
+document.addEventListener("DOMContentLoaded", () => {
+    const comicData = JSON.parse(localStorage.getItem('comicData'));
 
-        const imagePage = doc.getElementById('imagePage');
-        imagePage.src = img 
+    if (comicData) {
+        const { name, groups, price, img } = comicData;
 
-        const titlePage  = doc.getElementById('titlePage');
-        titlePage.textContent = name
+        const imagePage = document.getElementById('imagePage');
+        if (imagePage) imagePage.src = img;
 
+        const titlePage = document.getElementById('titlePage');
+        if (titlePage) titlePage.textContent = `Nombre: ${name}`;
 
-        const grupoPage  = doc.getElementById('grupoPage');
-        grupoPage.textContent = gruops;
+        const groupPage = document.getElementById('groupPage');
+        if (groupPage) groupPage.textContent = `Grupo: ${groups}`;
 
-        const pricePage = doc.getElementById('pricePage');
-        pricePage.textContent = price;
-
-        const nuevoHTML = new XMLSerializer().serializeToString(doc)
-
-        document.body.innerHTML = nuevoHTML;
-
-       })
-
-       .catch((error) => {
-           console.error(`Error al cargar los datos: ${error}`)
-       })
-
-       
-
-}
+        const pricePage = document.getElementById('pricePage');
+        if (pricePage) pricePage.textContent = `Precio: ${price}`;
+    }
+});

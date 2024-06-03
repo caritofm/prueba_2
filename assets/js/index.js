@@ -12,5 +12,3 @@ getComicCards();
 getDc();
 
 getDcCards();
-
-enviarDatos();
