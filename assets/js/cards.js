@@ -24,6 +24,9 @@ import { enviarDatos } from "./operaciones.js";
         const imgCard = document.createElement('img');
         imgCard.src= comic.img;
         imgCard.classList.add('card-img-top');
+        imgCard.classList.add('mt-2');
+        imgCard.classList.add('mx-auto');
+        imgCard.classList.add('w-75');
         imgCard.style.width = "280px"; 
         imgCard.style.height = "370px";
 
@@ -101,6 +104,9 @@ import { enviarDatos } from "./operaciones.js";
         const imgCard = document.createElement('img');
         imgCard.src= dc.img;
         imgCard.classList.add('card-img-top');
+        imgCard.classList.add('mt-2');
+        imgCard.classList.add('mx-auto');
+        imgCard.classList.add('w-75');
         imgCard.style.width = "280px"; 
         imgCard.style.height = "370px";
 
