@@ -1,5 +1,7 @@
 import { comicMarvel } from "./comicMarvel.js";
 
+import { enviarDatos } from "./operaciones.js";
+
 
  export function getComicCards(){
     let comicRow = document.getElementById("comicRow");
@@ -9,8 +11,9 @@ import { comicMarvel } from "./comicMarvel.js";
         comicCol.classList.add('col-xl-3')
         comicCol.classList.add('col-lg-3')
         comicCol.classList.add('col-md-3')
-        comicCol.classList.add('col-sm-10')
-        comicCol.classList.add('col-xs-10')
+        comicCol.classList.add('col-sm-12')
+        comicCol.classList.add('col-xs-12')
+
 
         const card = document.createElement("div")
 
@@ -34,20 +37,29 @@ import { comicMarvel } from "./comicMarvel.js";
         title.textContent = comic.name
 
 
-        const groups = document.createElement("p")
-        groups.classList.add("card-text")
-        groups.textContent= comic.groups
+        const subtitle = document.createElement("p")
+        subtitle.classList.add("card-text")
+        subtitle.textContent= comic.groups
         
-        const price = document.createElement("p")
-        price.classList.add("card-title")
-        price.textContent= comic.price
+        const ultitle = document.createElement("p")
+        ultitle.classList.add("card-title")
+        ultitle.textContent= comic.price
+
+        const btnComprar = document.createElement("button")
+        btnComprar.classList.add("btn")
+        btnComprar.classList.add("btn-danger")
+        btnComprar.textContent = "Agregar al carrito"
+        btnComprar.addEventListener("click", () =>{
+            enviarDatos(name, groups,price, img)
+        })
 
 
         
 
         divBody.appendChild(title)
-        divBody.appendChild(groups)
-        divBody.appendChild(price)
+        divBody.appendChild(subtitle)
+        divBody.appendChild(ultitle)
+        divBody.appendChild(btnComprar)
 
 
         card.appendChild(imgCard)
@@ -102,21 +114,29 @@ import { dccomics } from "./dccomics.js";
         title.classList.add("card-title")
         title.textContent = dc.name
 
-
-        const groups = document.createElement("p")
-        groups.classList.add("card-text")
-        groups.textContent= dc.groups
+        const subtitle = document.createElement("p")
+        subtitle.classList.add("card-text")
+        subtitle.textContent= dc.groups
         
-        const price = document.createElement("p")
-        price.classList.add("card-title")
-        price.textContent= dc.price
+        const ultitle = document.createElement("p")
+        ultitle.classList.add("card-title")
+        ultitle.textContent= dc.price
+
+        const btnComprar = document.createElement("button")
+        btnComprar.classList.add("btn")
+        btnComprar.classList.add("btn-danger")
+        btnComprar.textContent = "Agregar al carrito"
+        btnComprar.addEventListener("click", () =>{
+            enviarDatos(dc.name, dc.groups, dc.price, dc.img)
+        })
 
 
         
 
         divBody.appendChild(title)
-        divBody.appendChild(groups)
-        divBody.appendChild(price)
+        divBody.appendChild(subtitle)
+        divBody.appendChild(ultitle)
+        divBody.appendChild(btnComprar)
 
 
         card.appendChild(imgCard)
